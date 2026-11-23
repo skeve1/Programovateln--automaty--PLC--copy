@@ -180,7 +180,7 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 | Pozice | Typ modulu / komponenta                     | Přesné typové označení Teco           | Objednací číslo (Part No.) | Pokryté vstupy a výstupy (DI / DO / AI / PWM / relé) |
 | :----- | :------------------------------------------ | :------------------------------------ | :------------------------- | :--------------------------------------------------- |
 | **1**  | Spínaný napájecí zdroj 24 V DC na DIN lištu |  *(např. PS2-60/27)*             | `...`                      | Napájení centrály a senzorů 24 V DC                  |
-| **2**  | Centrální jednotka (CPU)                    | CP-2007 *(např. CP-2007 nebo CP-2005)*  | `...`                      | 3xDI 6xAI 6xDO relé                                                |
+| **2**  | Centrální jednotka (CPU)                    | CP-2007 *(např. CP-2007 nebo CP-2005)*  | `...`                      | 14xDI/AI 2xDO 11xrelé                                                 |
 | **3**  | Rozšiřující modul 1 (sběrnice TCL2)         | IB-1301 *(např. IB-1301)*               | `...`                      | 12xDI                                              |
 | **4**  | Rozšiřující modul 2 (sběrnice TCL2)         | IC-1701 *(např. OS-1401)*               | `...`                      | 8xDI 4xDO PWM                                               |
 | **5**  | Případný další submodul / zakončení         | `...` *(např. zakončovací člen TCL2)* | `...`                      | `...`                                                |
