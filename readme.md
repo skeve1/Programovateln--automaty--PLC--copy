@@ -190,10 +190,10 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 
 | Typ signálu | Požadavek linky | Celková kapacita navržené sestavy Teco | Rezerva (počet volných svorek) | Výsledná rezerva v % |
 | :--- | :--- | :--- | :--- | :--- |
-| **Digitální vstupy (DI)** | 23 | `...` | `...` | `... %` |
-| **Analogové vstupy (AI: 4–20mA, PT)**| 7 | `...` | `...` | `... %` |
-| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO)| `...` | `...` | `... %` |
-| **Reléové výstupy (DO relé 230 V)**| 3 | `...` | `...` | `... %` |
+| **Digitální vstupy (DI)** | 23 | 24 | 1 | 4,34 %` |
+| **Analogové vstupy (AI: 4–20mA, PT)**| 7 | 8 | 1 | 12,5 %` |
+| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO)| 6 (4xPWM + 2xDO) | 0 | 0  %` |
+| **Reléové výstupy (DO relé 230 V)**| 3 | 11 | 8 | 72.7 %` |
 
 3. **Proudová bilance a dimenzování napájecího zdroje 24 V DC:**
    - Vypočtěte proudovou spotřebu sestavy na hladině 24 V DC:
