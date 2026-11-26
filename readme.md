@@ -181,19 +181,19 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 | :----- | :------------------------------------------ | :------------------------------------ | :------------------------- | :--------------------------------------------------- |
 | **1**  | Spínaný napájecí zdroj 24 V DC na DIN lištu | *(např. PS2-60/27)*             | 	                 | Napájení centrály a senzorů 24 V DC                  |
 | **2**  | Centrální jednotka (CPU)                    |  CP-2007 *(např. CP-2007 nebo CP-2005)*  |          TXN 120 07.11NDNN            | 12xDI/AI 2xPMW 11xrelé                                                 |
-| **3**  | Rozšiřující modul 1 (sběrnice TCL2)         | *(např. IB-1301)*               |                  |                                               |
-| **4**  | Rozšiřující modul 2 (sběrnice TCL2)         | *(např. OS-1401)*               |                       |                                               |
-| **5**  | Případný další submodul / zakončení         | `...` *(např. zakončovací člen TCL2)* | `...`                      | `...`                                                |
+| **3**  | Rozšiřující modul 1 (sběrnice TCL2)         | IB-1301(např. IB-1301)*               |                  | 12× digitální vstup (DI 24 V DC)                                              |
+| **4**  | Rozšiřující modul 2 (sběrnice TCL2)         | OS-1401 (např. OS-1401)*               |                       |     12× tranzistorový (polovodičový) výstup 24 V DC / 0,5 A (vhodné pro PWM i standardní spínání DO)                                          |
+| **5**  | Případný další submodul / zakončení         | IT-1602. KB-0290. *(např. zakončovací člen TCL2)* | `...`                      | 4× analogový vstup (AI) pro odporová čidla (Pt100 / Pt1000). Zakončovací člen sběrnice TCL2 (terminátor 120 $\Omega$ na konci poslední pozice).                                               |
 
 2. **Vyhodnocení I/O bilance a projektové rezervy:**
    - Doplňte počty a vypočítejte výslednou rezervu pro budoucí rozšíření linky:
 
 | Typ signálu | Požadavek linky | Celková kapacita navržené sestavy Teco | Rezerva (počet volných svorek) | Výsledná rezerva v % |
 | :--- | :--- | :--- | :--- | :--- |
-| **Digitální vstupy (DI)** | 23 | 24 | 1 | 4,34 %` |
-| **Analogové vstupy (AI: 4–20mA, PT)**| 7 | 8 | 1 | 12,5 %` |
-| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO)| 6 (4xPWM + 2xDO) | 0 | 0  %` |
-| **Reléové výstupy (DO relé 230 V)**| 3 | 11 | 8 | 72.7 %` |
+| **Digitální vstupy (DI)** | 23 | 33× (2× IB-1301 + 9× z CP-2007) | 10 | 43,5 %` |
+| **Analogové vstupy (AI: 4–20mA, PT)**| 7 | 9× (5× z CP-2007 + 4× IT-1602) | 2 | 28,6 %` |
+| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO)| 12× (modul OS-1401) | 6 | 100  %` |
+| **Reléové výstupy (DO relé 230 V)**| 3 | 10× (jednotka CP-2007) | 7 |233,3 % |
 
 3. **Proudová bilance a dimenzování napájecího zdroje 24 V DC:**
    - Vypočtěte proudovou spotřebu sestavy na hladině 24 V DC:
