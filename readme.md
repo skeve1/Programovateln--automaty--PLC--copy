@@ -254,10 +254,10 @@ Jste v roli servisního inženýra na lince řízené automatem **Tecomat Foxtro
 | Signalizační prvek na PLC | Stav (barva / svit)     | Provozní význam (co stav znamená pro servisního technika)   |
 | :------------------------ | :---------------------- | :---------------------------------------------------------- |
 | **RUN**                   | Zelená, trvale svítí    | Uživatelský program v PLC běží v normálním cyklickém režimu |
-| **HALT / STOP**           | Žlutá / oranžová, svítí | `...`                                                       |
-| **ERR / FAULT**           | Červená, bliká          | `...`                                                       |
-| **ERR / FAULT**           | Červená, trvale svítí   | `...`                                                       |
-| **ETH (Link/Act)**        | Zelená/žlutá, bliká     | `...`                                                       |
+| **HALT / STOP**           | Žlutá / oranžová, svítí | Uživatelský program je zastaven (režim HALT/STOP). PLC nevykonává aplikační kód, výstupy jsou v definovaném klidovém stavu (vypnuty)                                                      |
+| **ERR / FAULT**           | Červená, bliká          | Lehká (nefatální) chyba nebo varování – např. chyba komunikace na sběrnici TCL2, výpadek rozšiřujícího modulu nebo chyba v uživatelském programu (překročení doby cyklu, chyba I/O)                                                      |
+| **ERR / FAULT**           | Červená, trvale svítí   |  Kritická (fatální) hardwarová nebo systémová chyba – např. porucha vnitřní paměti, chyba firmwaru nebo poškození CPU; automat okamžitě zastaví běh programu.                                                    |
+| **ETH (Link/Act)**        | Zelená/žlutá, bliká     |Fyzické spojení po síti Ethernet je navázáno (Link) a na lince právě probíhá datový přenos (Activity – komunikace s PC/Mosaic, SCADA nebo jiným PLC).                                                      |
 
 2. **Troubleshooting v elektrickém zapojení pomocí digitálního multimetru:**
    - Upevněte na DIN lištu PLC a podle parametrů (viz technický list) vyberte vhodný zdroj napájení.
