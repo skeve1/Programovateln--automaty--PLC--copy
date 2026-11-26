@@ -393,8 +393,50 @@ END_PROGRAM
    - *Váš doplněný kód v ST:*
 ```pascal
 // Vložte váš kompletní program:
-...
-```
+PROGRAM Prg_CerpStation
+(*nechci to dělat*)
+VAR
+  //  di_HladinaDolni  : BOOL; // NC plovák – spodní hladina (log.1 = OK)
+  //  di_HladinaPump   : BOOL; // NO plovák – zapínací hladina
+   // di_HladinaHavar  : BOOL; // NO plovák – havarijní přepad
+  //  di_Porucha       : BOOL; // NC termistor (log.1 = bez poruchy)
+  //  btn_Reset        : BOOL; // Ruční reset alarmu operátorem
+  //  do_Cerpadlo      : BOOL; // Výstup stykače čerpadla
+   // do_Alarm         : BOOL; // Výstup majáku / sirény
+
+    b_HavarieDetekce : BOOL; // RETAIN – příznak havárie přepadu (přežije výpadek)
+    timer_TOF        : TOF;  // Zpoždění vypnutí čerpadla (10 s)
+END_VAR
+
+// === Implementace logiky čerpací stanice ===
+
+// 1. Reset havarijního příznaku operátorem:
+IF btn_Reset THEN
+    b_HavarieDetekce := FALSE;
+END_IF;
+
+// 2. Detekce havarijního přepadu (porucha motoru spouští alarm přímo níže):
+IF di_HladinaHavar THEN
+    b_HavarieDetekce := TRUE;
+END_IF;
+
+// 3. Podmínka pro spuštění čerpadla (všechny provozní podmínky splněny):
+// Spustí se při dosažení zapínací hladiny, pokud je současně bezpečně nad minimem,
+// motor nemá poruchu a není evidována nezresetovaná havarijní událost.
+// (Využito jako vstupní podmínka IN pro časovač TOF)
+timer_TOF(
+    IN := di_HladinaPump AND di_HladinaDolni AND di_Porucha AND NOT b_HavarieDetekce,
+    PT := T#10s
+);
+
+// 4. Řízení výstupu čerpadla přes časovač TOF (zpoždění vypnutí 10 s + bezpečnostní blokování):
+do_Cerpadlo := timer_TOF.Q AND di_HladinaDolni AND di_Porucha;
+
+// 5. Aktivace alarmu (havarijní přepad nebo výpadek ochrany motoru):
+do_Alarm := b_HavarieDetekce OR NOT di_Porucha;
+
+END_PROGRAM
+
 
 3. **Ověření chování programu v simulátoru Mosaic (protokol o simulaci):**
 
