@@ -436,7 +436,7 @@ do_Cerpadlo := timer_TOF.Q AND di_HladinaDolni AND di_Porucha;
 do_Alarm := b_HavarieDetekce OR NOT di_Porucha;
 
 END_PROGRAM
-
+```
 
 3. **Ověření chování programu v simulátoru Mosaic (protokol o simulaci):**
 
